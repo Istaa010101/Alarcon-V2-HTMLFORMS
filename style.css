@@ -1,0 +1,110 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+button, li, a{
+    all: unset;
+    box-sizing: border-box;
+}
+
+#dropdown{
+    border-radius: 6px;
+    max-width: 220px;
+    width: 100%;
+    background-color: #ff7575;
+    position: relative;
+}
+
+.dropdown-toggle, .menu-item, .submenu-item{
+    width: 100%;
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+:is(.menu-item, .submenu-item):first-child{
+    border-top-right-radius: inherit;
+    border-top-left-radius: inherit;
+}
+
+:is(.menu-item, .submenu-item):hover{
+    background-color: #ffea00;
+    border-radius: 6px;
+}
+
+.dropdown-toggle, .submenu-toggle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-toggle > span {
+    color: #7b7b6e;
+}
+
+.adjust {
+    width: 20px;
+    rotate: 180deg;
+    color: #db8400;
+    transition: 0.25s ease;
+}
+
+.adjust2{
+    width: 20px;
+    rotate: 90deg;
+    transition: 0.25s ease;
+}
+
+
+.dropdown-toggle.open > i{
+    rotate: 180deg;
+}
+
+.dropdown{
+    position: relative;
+}
+
+.menu, .submenu{
+    display: flex;
+    flex-direction: column;
+    background-color: #13dfbd;
+    border-radius: 6px;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu{
+    width: 100%;
+    translate: all 0.3s ease;
+}
+
+.menu.open{
+    visibility: visible;
+    opacity: 1;
+    translate: 0 12px;
+}
+
+.submenu{
+    width: max-content;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    translate: -12px 0;
+}
+
+.menu-item:hover > .submenu-toggle + .submenu{
+    visibility: visible;
+    opacity: 1;
+    translate: 8px 0;
+}
